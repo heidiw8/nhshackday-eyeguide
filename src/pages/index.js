@@ -6,9 +6,9 @@ export default ({ data }) => {
   return (
     <div>
       <h1>
-        Amazing Pandas Eating Things
+        Guidelines
       </h1>
-      <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+      <h4>{data.allMarkdownRemark.totalCount} Categories</h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
           <Link
@@ -16,10 +16,9 @@ export default ({ data }) => {
           >
             <h3>
               {node.frontmatter.title}{" "}
-              <span>— {node.frontmatter.date}</span>
             </h3>
-            <p>{node.excerpt}</p>
           </Link>
+          <span> updated: {node.frontmatter.date}</span>
         </div>
       ))}
     </div>
@@ -40,7 +39,6 @@ export const query = graphql`
           fields {
             slug
           }
-          excerpt
         }
       }
     }
