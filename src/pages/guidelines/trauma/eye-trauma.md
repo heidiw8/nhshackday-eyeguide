@@ -1,6 +1,7 @@
 ---
 title: Eye Trauma
 date: "2017-08-21"
+tags: ["trauma"]
 ---
 
 ## KEY ADVICE 

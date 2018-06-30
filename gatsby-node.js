@@ -1,4 +1,5 @@
 const path = require(`path`);
+const _ = require('lodash')
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
@@ -15,6 +16,8 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
+  const diagnosisTemplate = path.resolve("src/templates/diagnosis.js");
+  const guidelineIndexTemplate = path.resolve("src/templates/guidelineIndex.js");
 
   return new Promise((resolve, reject) => {
     graphql(`
@@ -32,14 +35,28 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     `
     ).then(result => {
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve(`./src/templates/diagnosis.js`),
-          context: {
-            // Data passed to context is available in page queries as GraphQL variables.
-            slug: node.fields.slug,
-          },
-        })
+        console.log({ node })
+        if (node.fields.slug === '/condition-index/') {
+          createPage({
+            path: node.fields.slug,
+            component: guidelineIndexTemplate,
+            context: {
+              // Data passed to context is available in page queries as GraphQL variables.
+              slug: node.fields.slug,
+            },
+          })
+        } else {
+          createPage({
+            path: node.fields.slug,
+            component: diagnosisTemplate,
+            context: {
+              // Data passed to context is available in page queries as GraphQL variables.
+              slug: node.fields.slug,
+            },
+          })
+
+        }
+
       })
       resolve()
     })

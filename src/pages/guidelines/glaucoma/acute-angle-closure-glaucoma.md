@@ -1,6 +1,7 @@
 ---
 title: Acute Angle Closure Glaucoma
 date: "2017-08-21"
+tags: ["glaucoma"]
 ---
 
 ## KEY ADVICE 

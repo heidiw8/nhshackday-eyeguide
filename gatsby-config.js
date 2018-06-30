@@ -19,11 +19,19 @@ module.exports = {
           },
         ],
       },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
         path: `${__dirname}/src/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `guidelines`,
+        path: `${__dirname}/src/pages/guidelines`,
       },
     },
   ],

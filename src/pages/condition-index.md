@@ -1,5 +1,5 @@
 ---
-title: Catergorised Index of Condition Guidelines
+title: Categorised Index of Condition Treatment Guidelines
 date: "2017-08-21"
 ---
 
@@ -11,7 +11,7 @@ date: "2017-08-21"
 ### Secondary glaucoma 
 ### Developmental glaucoma (congenital glaucoma)
 
-# Trauam
+# Trauma
 
 ### Acute Trauma
 ### Non-Acute Trauma
